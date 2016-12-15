@@ -3,6 +3,8 @@ define("DS", DIRECTORY_SEPARATOR);
 $BASE_DIR = dirname(dirname(__FILE__));
 define("__BASE_PATH", $BASE_DIR);
 
+require_once 'products_lib.php';
+
 $product_dir = __BASE_PATH . DS . "product";
 $products = scandir($product_dir);
 
@@ -32,18 +34,32 @@ foreach ($products as $product)
 				$itemMeta['code'] = $subItem;
 				file_put_contents($curSubItemDir . DS . "meta.json", json_encode($itemMeta));
 				
-				$curFiles = scandir($curSubItemDir . DS . "images");
+				$imagesDir = $curSubItemDir . DS . "images";
+				
+				if(!file_exists($curSubItemDir . DS . "build"))
+					mkdir($curSubItemDir . DS . "build");
+				
+				$images_200 = $curSubItemDir . DS . "build" . DS . "images_200";
+				if(!file_exists($images_200)) mkdir($images_200);
+				$images_400 = $curSubItemDir . DS . "build" . DS . "images_400";
+				if(!file_exists($images_400)) mkdir($images_400);
+				
+				$curFiles = scandir($imagesDir);
 				
 				$images = array();
 				foreach ($curFiles as $parseFile)
 				{
 					if(substr($parseFile, 0,1)=='.') continue;
+					if(is_dir($imagesDir . DS . $parseFile)) continue;
 					
 					$imageExt = substr($parseFile, -4);
 					$imageExt = strtolower($imageExt);
 					if(in_array($imageExt, array('.jpg','jpe','.png','.gif')))
 					{
 						$images[] = $parseFile;
+						
+						imagejpeg(resizeImage($imagesDir . DS . $parseFile, 200, 200), $images_200 . DS . $parseFile, 100);
+						imagejpeg(resizeImage($imagesDir . DS . $parseFile, 400, 400), $images_400 . DS . $parseFile, 100);
 					}
 				}
 				
