@@ -1,8 +1,5 @@
 <?php
-define("DS", DIRECTORY_SEPARATOR);
-$BASE_DIR = dirname(dirname(__FILE__));
-define("__BASE_PATH", $BASE_DIR);
-
+require_once 'config.php';
 require_once 'products_lib.php';
 
 $product_dir = __BASE_PATH . DS . "product";
@@ -58,8 +55,10 @@ foreach ($products as $product)
 					{
 						$images[] = $parseFile;
 						
+						/**
 						imagejpeg(resizeImage($imagesDir . DS . $parseFile, 200, 200), $images_200 . DS . $parseFile, 100);
 						imagejpeg(resizeImage($imagesDir . DS . $parseFile, 400, 400), $images_400 . DS . $parseFile, 100);
+						/**/
 					}
 				}
 				
