@@ -37,9 +37,9 @@ function buildProductListPage(data)
 {
 	console.log(data);
 	
-	var title = data.title;
+	var productName = data.title;
 	
-	$("#productlistpage h2").html(title);
+	$("#productlistpage h2").html(productName);
 	
 	var newProductObj = $('#productlistpage .prodItem').clone();
 	$('#productlistpage .prodItem').remove();
@@ -59,7 +59,7 @@ function buildProductListPage(data)
 		
 		var newProduct = newProductObj.clone();
 		
-		var imgURL = "http://static.denimengland.com/product/"+title+"/"+code+"/build/images_200/"+img;
+		var imgURL = "http://static.denimengland.com/product/"+productName+"/"+code+"/build/images_200/"+img;
 		
 		newProduct.find('img').attr('src',imgURL);
 		newProduct.find('span').html(title);
