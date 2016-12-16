@@ -103,7 +103,7 @@ foreach ($products as $product)
 								else {
 									if(strlen(trim($buffer))>0)
 									{
-										$productTitle .= $buffer;
+										$productTitle .= utf8_encode( trim($buffer) );
 									}
 								}
 							}
@@ -118,7 +118,14 @@ foreach ($products as $product)
 					
 					print_r($productData);
 					
-					file_put_contents($curSubItemDir . DS . "product.json", json_encode($itemMeta));
+					file_put_contents($curSubItemDir . DS . "product.json", json_encode($productData));
+					
+					echo file_get_contents($curSubItemDir . DS . "product.json");
+					echo "\n\n";
+					echo $curSubItemDir . DS . "product.json";
+					echo "\n\n";
+					var_dump(json_last_error());
+					echo "\n\n";
 					die;
 				}
 				
