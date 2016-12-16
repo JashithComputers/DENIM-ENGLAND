@@ -39,7 +39,7 @@ function buildProductListPage(data)
 	
 	var productName = data.title;
 	
-	$("#productlistpage h2").html(productName);
+	$("#productlistpage h2").html("Denim Englang -> "+productName);
 	
 	var newProductObj = $('#productlistpage .prodItem').clone();
 	$('#productlistpage .prodItem').remove();

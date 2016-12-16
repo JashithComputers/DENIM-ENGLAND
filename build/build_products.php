@@ -39,6 +39,7 @@ foreach ($products as $product)
 			{
 				$itemMeta = array();
 				$itemMeta['code'] = $subItem;
+				$itemMeta['category'] = $meta;
 				
 				$pid = preg_replace('/[^A-z0-9]/', '', $subItem);
 				$pid = strtolower($pid);
