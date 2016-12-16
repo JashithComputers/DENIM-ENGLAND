@@ -53,7 +53,7 @@ function buildProductListPage(data)
 		var images = item.images;
 		
 		var img = images[0];
-		var title = product.title;
+		var title = product.title || code;
 		var price = product.Price;
 		 
 		
@@ -62,7 +62,7 @@ function buildProductListPage(data)
 		var imgURL = "http://static.denimengland.com/product/"+productName+"/"+code+"/build/images_200/"+img;
 		
 		newProduct.find('img').attr('src',imgURL);
-		newProduct.find('span').html(title);
+		newProduct.find('span').html(title).attr('title',title);
 		
 		$("#productlistpage").append(newProduct);	
 	}

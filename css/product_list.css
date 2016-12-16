@@ -51,7 +51,10 @@
     width: 96%;
     background: rgba(138, 67, 1, 0.13);
     color: #8c4300;
-    font-size: 16px;
+    font-size: 13px;
     padding: 10px 2%;
+    max-height: 60px;
+    overflow: hidden;
+    min-height: 60px;
 }
 
