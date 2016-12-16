@@ -8,6 +8,9 @@ $products = scandir($product_dir);
 foreach ($products as $product)
 {
 	if(substr($product, 0,1)=='.') continue;
+	if(substr($product, 0,strlen('build'))=='build') continue;
+	
+	$productBuildDir = $product_dir . DS . "build";
 	
 	$curProductDir = $product_dir . DS . $product;
 	
@@ -15,7 +18,14 @@ foreach ($products as $product)
 	{
 		$meta = array();
 		$meta['title'] = $product;
-		file_put_contents($curProductDir . DS . "meta.json", json_encode($meta));
+		$ppid = preg_replace('/[^A-z]/', '', $product);
+		$ppid = strtolower($ppid);
+		$meta['ppid'] = $ppid;
+		
+		$productItems = array();
+		
+		if(!file_exists($productBuildDir))
+			mkdir($productBuildDir);
 		
 		$subItems = scandir($curProductDir);
 
@@ -29,6 +39,11 @@ foreach ($products as $product)
 			{
 				$itemMeta = array();
 				$itemMeta['code'] = $subItem;
+				
+				$pid = preg_replace('/[^A-z0-9]/', '', $subItem);
+				$pid = strtolower($pid);
+				$itemMeta['pid'] = $pid;
+				
 				file_put_contents($curSubItemDir . DS . "meta.json", json_encode($itemMeta));
 				
 				$imagesDir = $curSubItemDir . DS . "images";
@@ -63,9 +78,22 @@ foreach ($products as $product)
 				}
 				
 				$itemMeta['images'] = $images;
+				
+				$productData = file_get_contents($curSubItemDir . DS . "product.json");
+				$productData = json_decode($productData,true);
+				
+				$itemMeta['product'] = $productData;
+				
 				file_put_contents($curSubItemDir . DS . "info.json", json_encode($itemMeta));
+				
+				file_put_contents($productBuildDir . DS . "pid_{$pid}.json", json_encode($itemMeta));
+				
+				$productItems[] = $itemMeta;
 			}
 		}
+		
+		$meta['items'] = $productItems;
+		file_put_contents($productBuildDir . DS . "ppid_{$ppid}.json", json_encode($meta));
 	}
 }
 
