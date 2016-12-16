@@ -82,6 +82,45 @@ foreach ($products as $product)
 				$productData = file_get_contents($curSubItemDir . DS . "product.json");
 				$productData = json_decode($productData,true);
 				
+				if(empty($productData))
+				{
+					$productTitle = ""; 
+					$handle = @fopen($curSubItemDir . DS . "desc.html", "r" );
+					if ($handle) {
+						while ( ($buffer = fgets ( $handle, 4096 )) !== false ) {
+							if(strlen(trim($buffer))>0)
+							{
+								if(stristr($buffer, 'Price'))
+								{
+									$productData['Price'] = trim(str_replace('PRICE', '', strtoupper($buffer)));
+								}
+								else if(strstr($buffer, ':'))
+								{
+									$parts = explode(':', trim($buffer));
+									$productData['meta'][array_shift($parts)] = trim(implode('', $parts));
+								}
+								else {
+									if(strlen(trim($buffer))>0)
+									{
+										$productTitle .= $buffer;
+									}
+								}
+							}
+						}
+						if (! feof ( $handle )) {
+							echo "Error: unexpected fgets() fail\n";
+						}
+						fclose ( $handle );
+					}
+					
+					$productData['title'] = $productTitle;
+					
+					print_r($productData);
+					
+					file_put_contents($curSubItemDir . DS . "product.json", json_encode($itemMeta));
+					die;
+				}
+				
 				$itemMeta['product'] = $productData;
 				
 				file_put_contents($curSubItemDir . DS . "info.json", json_encode($itemMeta));
