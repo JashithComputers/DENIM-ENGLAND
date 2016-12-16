@@ -29,13 +29,10 @@ foreach ($products as $product)
 				$info = file_get_contents($curSubItemDir . DS . "info.json");
 				$info = json_decode($info);
 					
-				foreach ($info->images as $img)
-				{
-					echo "\n";
-					$imgSrc = "http://static.denimengland.com/product/{$product}/{$subItem}/build/images_200/{$img}";
-					
-					echo '<img src="'.$imgSrc.'" />';
-				}
+				echo "\n";
+				$imgSrc = "http://static.denimengland.com/product/{$product}/{$subItem}/build/images_200/".array_shift($info->images);
+				
+				echo '<img src="'.$imgSrc.'" />';
 			}
 		}
 		echo "\n\n";
