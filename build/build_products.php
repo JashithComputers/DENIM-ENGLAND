@@ -91,7 +91,7 @@ foreach ($products as $product)
 						while ( ($buffer = fgets ( $handle, 4096 )) !== false ) {
 							if(strlen(trim($buffer))>0)
 							{
-								if(stristr($buffer, 'Price'))
+								if(stristr($buffer, 'Price') && (stristr($buffer, 'usd') || stristr($buffer, 'inr')))
 								{
 									$productData['Price'] = trim(str_replace('PRICE', '', strtoupper($buffer)));
 								}
