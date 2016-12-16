@@ -41,14 +41,14 @@ function buildProductDetailPage(data)
 	var parentPpid = category.ppid;
 	 
 	
-	var imgURL = "http://static.denimengland.com/product/"+productName+"/"+code+"/build/images/"+img;
+	var imgURL = "http://static.denimengland.com/product/"+parentTitle+"/"+code+"/build/images/"+img;
 	
 	$("#productdetail h2").html("Denim Englang -> "+parentTitle+" -> "+code);
 	
 	productObj.find('#smallimages').html('');
 	for(x in images)
 	{
-		var smallImgURL = "http://static.denimengland.com/product/"+productName+"/"+code+"/build/images_200/"+images[x];
+		var smallImgURL = "http://static.denimengland.com/product/"+parentTitle+"/"+code+"/build/images_200/"+images[x];
 		
 		var smallImgHTML = "<img src='"+smallImgURL+"' data-imgname='"+images[x]+"' />";
 		productObj.find('#smallimages').append(smallImgHTML);
