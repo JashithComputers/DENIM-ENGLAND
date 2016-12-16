@@ -36,4 +36,38 @@ $.ajax({
 function buildProductListPage(data)
 {
 	console.log(data);
+	
+	var title = data.title;
+	
+	$("#productlistpage h2").html(title);
+	
+	var newProductObj = $('#productlistpage .prodItem').clone();
+	$('#productlistpage .prodItem').remove();
+	for(x in data.items)
+	{
+		var item = data.items[x];
+		
+		var code = item.code;
+		var pid = item.pid;
+		var product = item.product;
+		var images = item.images;
+		
+		var img = images[0];
+		var title = product.title;
+		var price = product.Price;
+		 
+		
+		var newProduct = newProductObj.clone();
+		
+		var imgURL = "http://static.denimengland.com/product/"+title+"/"+code+"/build/images_200/"+img;
+		
+		newProduct.find('img').attr('src',imgURL);
+		newProduct.find('span').html(title);
+		
+		$("#productlistpage").append(newProduct);	
+	}
+	
+	
+	
+	
 }
