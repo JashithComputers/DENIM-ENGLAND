@@ -41,7 +41,7 @@ function buildProductDetailPage(data)
 	var parentPpid = category.ppid;
 	 
 	
-	var imgURL = "http://static.denimengland.com/product/"+parentTitle+"/"+code+"/build/images/"+img;
+	var imgURL = "http://static.denimengland.com/product/"+parentTitle+"/"+code+"/images/"+img;
 	
 	$("#productdetail h2").html("Denim Englang -> "+parentTitle+" -> "+code);
 	
