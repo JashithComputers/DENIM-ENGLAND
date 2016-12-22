@@ -81,6 +81,7 @@ h6 {
 .jccontenthld {
     width: 100%;
     margin: 0 auto;
+        float: left;
 }
 #jcHeader {
     float: left;
