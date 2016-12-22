@@ -43,7 +43,7 @@ function buildProductDetailPage(data)
 	
 	var imgURL = "http://static.denimengland.com/product/"+parentTitle+"/"+code+"/images/"+img;
 	
-	$("#productdetail h2").html("Denim Englang -> "+parentTitle+" -> "+code);
+	$("#productdetail h2").html("Denim England -> "+parentTitle+" -> "+code);
 	
 	productObj.find('#smallimages').html('');
 	for(x in images)

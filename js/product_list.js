@@ -24,7 +24,7 @@ function buildProductListPage(data)
 	
 	var productName = data.title;
 	
-	$("#productlistpage h2").html("Denim Englang -> "+productName);
+	$("#productlistpage h2").html("Denim England -> "+productName);
 	
 	var newProductObj = $('#productlistpage .prodItem').clone();
 	$('#productlistpage .prodItem').remove();
