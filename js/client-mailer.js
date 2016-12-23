@@ -12,10 +12,9 @@ function sendMail(message, name, email, doneFn)
 				, email: email 
 				, message: message 
 				, blogID: "6958217075977861066"
-			})
-			.done(function(data){
-				doneFn();
 			});
+			if(typeof(doneFn)=="function")
+				doneFn();
 		});
 	}
 }
