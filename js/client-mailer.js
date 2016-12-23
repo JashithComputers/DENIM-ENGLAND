@@ -5,7 +5,7 @@ function sendMail(message, name, email, doneFn)
 	
 	if(message)
 	{
-		consol.log(doneFn);
+		console.log(doneFn);
 		$(document).ready(function(){
 			$.post( "https://www.blogger.com/contact-form.do", { 
 				name: name
