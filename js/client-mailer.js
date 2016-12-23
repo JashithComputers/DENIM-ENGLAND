@@ -13,7 +13,9 @@ function sendMail(message, name, email, doneFn)
 				, message: message 
 				, blogID: "6958217075977861066"
 			})
-			.done(doneFn);
+			.done(function(data){
+				doneFn();
+			});
 		});
 	}
 }
