@@ -40,6 +40,7 @@ function buildProductDetailPage(data)
 	var parentTitle = category.title;
 	var parentPpid = category.ppid;
 	 
+	setActiveMenu(parentPpid);
 	
 	var imgURL = "http://static.denimengland.com/product/"+parentTitle+"/"+code+"/images/"+img;
 	

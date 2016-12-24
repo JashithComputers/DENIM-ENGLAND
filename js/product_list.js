@@ -1,5 +1,6 @@
 var __GET = getUrlVars();
 var pid = __GET['pid'] || 'wallet';
+setActiveMenu(pid);
 
 console.log(pid);
 
