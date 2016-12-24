@@ -28,14 +28,6 @@
 		});
 	}
 	
-	function client_setupHeader()
-	{
-		if(JCL_firebase.is_auth())
-		{
-			var welcomemsg = "Welcome "+JCL_firebase.getName();
-		}
-	}
-	
 	function registerAuthCallback(callback)
 	{
 		window._JCL_firebase_onAuthStateChanged = window. _JCL_firebase_onAuthStateChanged || [];
@@ -68,13 +60,17 @@
 		}
 	}
 	
-	
 	$(document).ready(function(){
-		
-		registerAuthCallback({client_setupHeader:client_setupHeader});
-		
 		JCL_firebase.onAuthStateChanged(function(user){
 			fireAuthCallbacks();
 		});
 	});
+	
+	registerAuthCallback({client_setupHeader:function(){
+		if(JCL_firebase.is_auth())
+		{
+			var welcomemsg = "Welcome "+JCL_firebase.getName();
+			$("#jcHeader #topstrip #headerwelcomemsg").html(welcomemsg);
+		}
+	}});
 	
