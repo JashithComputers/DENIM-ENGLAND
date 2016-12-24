@@ -220,6 +220,17 @@ a {
     line-height: 20px !important;
 }
 
+.compose-contents h1,
+.compose-contents h2,
+.compose-contents h3,
+.compose-contents h4,
+.compose-contents h5
+{
+	text-transform: inherit;
+	letter-spacing: 2px;
+	text-align: left;
+}
+
 .compose-contents h2,
 .compose-contents h2 * {
     font-size: 22px !important;
@@ -228,13 +239,13 @@ a {
 
 .compose-contents h3,
 .compose-contents h3 * {
-    font-size: 20px !important;
+    font-size: 18px !important;
     letter-spacing: 2px;
 }
 
 .compose-contents h4,
 .compose-contents h4 * {
-    font-size: 18px !important;
+    font-size: 16px !important;
     letter-spacing: 2px;
 }
 
