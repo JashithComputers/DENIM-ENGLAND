@@ -211,18 +211,22 @@ a {
     max-width: 700px;
 }
 
-.compose-contents h2 * {
-    font-size: 22px !important;
-    letter-spacing: 2px;
+.compose-contents * {
+    text-align: justify;
 }
+
 .compose-contents span {
     font-size: 14px !important;
     line-height: 20px !important;
 }
 
-.compose-contents * {
-    text-align: justify;
+.compose-contents h2 * {
+    font-size: 22px !important;
+    letter-spacing: 2px;
 }
+
+
+
 
 
 
