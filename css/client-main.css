@@ -227,26 +227,26 @@ a {
 .compose-contents h5
 {
 	text-transform: inherit;
-	letter-spacing: 2px;
+	letter-spacing: inherit;
 	text-align: left;
 }
 
 .compose-contents h2,
 .compose-contents h2 * {
     font-size: 22px !important;
-    letter-spacing: 2px;
+    letter-spacing: inherit;
 }
 
 .compose-contents h3,
 .compose-contents h3 * {
     font-size: 18px !important;
-    letter-spacing: 2px;
+    letter-spacing: inherit;
 }
 
 .compose-contents h4,
 .compose-contents h4 * {
     font-size: 16px !important;
-    letter-spacing: 2px;
+    letter-spacing: inherit;
 }
 
 
