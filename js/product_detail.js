@@ -44,7 +44,15 @@ function buildProductDetailPage(data)
 	
 	var imgURL = "http://static.denimengland.com/product/"+parentTitle+"/"+code+"/images/"+img;
 	
-	$("#productdetail h2").html("Denim England -> "+parentTitle+" -> "+code);
+	var breadcrumb = "";
+	breadcrumb += "<a href='/'>Denim England</a>";
+	breadcrumb += " / "
+	breadcrumb += "<a href='/p/product-page.html?pid="+parentPpid+"&ts'>"+parentTitle+"</a>";
+	breadcrumb += " / "
+	breadcrumb += "<a class='active' href='#'>"+code+"</a>";
+	
+	$("#productbreadcrumb").html(breadcrumb);
+	
 	
 	productObj.find('#smallimages').html('');
 	for(x in images)

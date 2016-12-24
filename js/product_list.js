@@ -25,7 +25,13 @@ function buildProductListPage(data)
 	
 	var productName = data.title;
 	
-	$("#productlistpage h2").html("Denim England -> "+productName);
+	var breadcrumb = "";
+	breadcrumb += "<a href='/'>Denim England</a>";
+	breadcrumb += " / "
+	breadcrumb += "<a class='active' href='#'>"+productName+"</a>";
+	
+	$("#productbreadcrumb").html(breadcrumb);
+	
 	
 	var newProductObj = $('#productlistpage .prodItem').clone();
 	$('#productlistpage .prodItem').remove();

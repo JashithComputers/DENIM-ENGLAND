@@ -5,12 +5,27 @@
     text-align: center;
 }
 
-#productlistpage h2 {
-    width: 98%;
-    margin: 0 1%;
+
+#productbreadcrumb {
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #000;
+    margin: 0 20px;
+}
+#productbreadcrumb a {
+    text-decoration: none;
+    color: inherit;
     color: #FF7E29;
-    font-size: 22px;
-    text-align: left;
+}
+
+#productbreadcrumb a.active
+, #productbreadcrumb a:hover
+{
+	border: 5px solid #F00;
+    border-top:0;
+    border-left:0;
+    border-right:0;
 }
 
 #productlistpage .prodItem {

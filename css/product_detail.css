@@ -3,14 +3,27 @@
     width: 100%;
 }
 
-#productdetail h2 {
-    font-size: 18px;
-    width: 98%;
-    margin: 0 1% 15px;
-    color: #FF7E29;
-        font-family: sans-serif;
-        letter-spacing: 3px;
+#productbreadcrumb {
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #000;
+    margin: 0 20px;
 }
+#productbreadcrumb a {
+    text-decoration: none;
+    color: inherit;
+    color: #FF7E29;
+}
+
+#productbreadcrumb a.active
+, #productbreadcrumb a:hover
+{
+	border: 5px solid #F00;
+    border-top:0;
+    border-left:0;
+    border-right:0;
+}}
 
 #smallimages {
     float: left;
