@@ -206,6 +206,18 @@ a {
 	color: inherit;
 }
 
+.compose-contents {
+    margin: 0 50px;
+}
+
+.compose-contents h2 * {
+    font-size: 22px !important;
+    letter-spacing: 2px;
+}
+.compose-contents span {
+    font-size: 14px !important;
+    line-height: 20px !important;
+}
 
 
 
