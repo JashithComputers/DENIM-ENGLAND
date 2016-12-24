@@ -220,8 +220,21 @@ a {
     line-height: 20px !important;
 }
 
+.compose-contents h2,
 .compose-contents h2 * {
     font-size: 22px !important;
+    letter-spacing: 2px;
+}
+
+.compose-contents h3,
+.compose-contents h3 * {
+    font-size: 20px !important;
+    letter-spacing: 2px;
+}
+
+.compose-contents h4,
+.compose-contents h4 * {
+    font-size: 18px !important;
     letter-spacing: 2px;
 }
 
