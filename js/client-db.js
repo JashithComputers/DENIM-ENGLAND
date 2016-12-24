@@ -28,6 +28,16 @@
 		});
 	}
 	
+	function signout(){
+		var nextURL = window.top.location || "/";
+		
+		$(document).ready(function(){
+			JCL_firebase.signOut(function(){
+				window.top.location = nextURL;
+			});
+		});
+	}
+	
 	function registerAuthCallback(callback)
 	{
 		window._JCL_firebase_onAuthStateChanged = window. _JCL_firebase_onAuthStateChanged || [];

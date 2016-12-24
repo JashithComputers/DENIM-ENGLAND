@@ -1,118 +1,84 @@
-<div id="siteheader">
-	<div id="logo">
-		<a href="/"> <img
-			src="http://static.denimengland.com/images/logo.png" />
-		</a>
-	</div>
-
-	<div id="menu">
-		<ul>
-			<li><a id="menu_wallet"
-				href="/p/product-page.html?pid=wallet&ts">WALLET</a></li>
-			<li><a id="menu_handbag"
-				href="/p/product-page.html?pid=handbag&ts">HAND BAG</a></li>
-			<li><a id="menu_purse" href="/p/product-page.html?pid=purse&ts">PURSE</a></li>
-			<li><a id="menu_cardholder"
-				href="/p/product-page.html?pid=cardholder&ts">CARD-HORDER</a></li>
-			<li><a id="menu_backpack"
-				href="/p/product-page.html?pid=backpack&ts">BACK PACK</a></li>
-		</ul>
-	</div>
-
-	<span id="sitetagline"> FEEL THE TOUCH <em>FEEL THE LEATHER</em>
+<div id="topstrip">
+	<span id="headerwelcomemsg"> Welcome Guest! <a href="/login">Login
+			<em>or</em> Signup
+	</a>
 	</span>
 
+	<ul id="topstripmenu">
+		<li><a href="#">Wishlist</a></li>
+		<li><a href="#">Shopping Cart</a></li>
+		<li class='auth'><a href="#">My Account</a></li>
+		<li class='auth login'><a href="#">Login</a></li>
+	</ul>
 </div>
+
 <script>
-function setActiveMenu(menu)
-{
-	$(document).ready(function(){
-		$("#menu li").removeClass("active");
-		$("#menu li a#menu_"+menu).parents("li:first").addClass("active");
+	registerAuthCallback({
+		"topstripmenu_handle" : function() {
+			if (JCL_firebase.is_auth()) {
+				$('#topstripmenu .auth').show();
+				$('#topstripmenu .auth.login').html(
+						"<a href='#' onclick='signout();'>Signout</a>");
+			} else {
+				$('#topstripmenu .auth').hide();
+				$('#topstripmenu .auth.login').html(
+						"<a href='/login' >Login</a>");
+			}
+		}
 	});
-}
 </script>
 
 <style>
-#HTML1 {
-	float: left;
+#HTML2 {
 	width: 100%;
-}
-
-#siteheader {
-	background: #FFF;
-	color: #000;
-	min-height: 102px;
 	float: left;
-	width: 100%;
 }
 
-#logo {
-	float: left;
-	padding: 0 15px;
+#topstrip {
+	padding: 10px 1%;
+	width: 98%;
+	background: #000;
+	color: #FFF;
 }
 
-#menu {
+#topstrip span {
+	
+}
+
+#topstrip em {
+	color: #F00;
+	font-style: normal;
+}
+
+#topstrip ul {
 	float: right;
-}
-
-#menu ul {
-	float: left;
 	list-style: none;
-	margin: 24px 0;
 }
 
-#menu ul li {
+#topstrip li {
 	float: left;
-	padding: 16px 0 0;
-	font-weight: 600;
-	font-size: 19px;
-	margin: 0 60px;
-}
-
-@media screen and (max-width: 1400px) {
-	#menu ul li {
-		margin: 0 50px;
-	}
-}
-
-@media screen and (max-width: 1300px) {
-	#menu ul li {
-		margin: 0 40px;
-	}
-}
-
-@media screen and (max-width: 960px) {
-	#menu ul li {
-		margin: 0 26px;
-	}
-}
-
-#menu ul li:hover {
-	border: 5px solid #F00;
-	border-top: 0;
-	border-left: 0;
+	padding: 0 10px;
+	border: 1px solid #FFF;
 	border-right: 0;
+	border-top: 0;
+	border-bottom: 0;
 }
 
-#menu ul li a {
+#topstrip li:FIRST-CHILD {
+	border-left: 0;
+}
+
+#topstrip li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#topstripmenu .auth {
+	display: none;
+}
+
+#headerwelcomemsg a {
 	color: inherit;
 	text-decoration: none;
-}
-
-#sitetagline {
-	float: right;
-	width: 96%;
-	font-weight: 600;
-	font-size: 16px;
-	color: rgb(255, 126, 41);
-	letter-spacing: 3px;
-	text-align: right;
-	padding: 0 2% 8px;
-}
-
-#sitetagline em {
-	font-style: normal;
-	color: rgb(135, 3, 27);
 }
 </style>

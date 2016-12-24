@@ -52,6 +52,7 @@ function buildProductDetailPage(data)
 	breadcrumb += "<a class='active' href='#'>"+code+"</a>";
 	
 	$("#productbreadcrumb").html(breadcrumb);
+	$('html title').html(title);
 	
 	
 	productObj.find('#smallimages').html('');

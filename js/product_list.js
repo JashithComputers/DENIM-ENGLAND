@@ -31,6 +31,7 @@ function buildProductListPage(data)
 	breadcrumb += "<a class='active' href='#'>"+productName+"</a>";
 	
 	$("#productbreadcrumb").html(breadcrumb);
+	$('html title').html(productName);
 	
 	
 	var newProductObj = $('#productlistpage .prodItem').clone();
