@@ -208,6 +208,7 @@ a {
 
 .compose-contents {
     margin: 0 50px;
+    max-width: 700px;
 }
 
 .compose-contents h2 * {
@@ -217,6 +218,10 @@ a {
 .compose-contents span {
     font-size: 14px !important;
     line-height: 20px !important;
+}
+
+.compose-contents * {
+    text-align: justify;
 }
 
 
