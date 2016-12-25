@@ -80,6 +80,8 @@ function buildProductDetailPage(data) {
     productObj.find('#smallimages img').click(function() {
         var imgname = $(this).attr("data-imgname");
         console.log(imgname);
+
+        productObj.find('#largeimage img').attr("src", "http://static.denimengland.com/images/loading.gif");
         var imgURL = "http://static.denimengland.com/product/" + parentTitle + "/" + code + "/images/" + imgname;
         productObj.find('#largeimage img').attr("src", imgURL);
     });
