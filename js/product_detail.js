@@ -76,7 +76,6 @@ function buildProductDetailPage(data) {
 
     //setup events
 
-    var productObj = $('#productdetail');
     productObj.find('#smallimages img').click(function() {
         var imgname = $(this).attr("data-imgname");
         console.log(imgname);
@@ -104,6 +103,33 @@ function buildProductDetailPage(data) {
             obj.val(parseInt(val) + 1);
         }
 
+    });
+
+    //zoomer
+
+    $("#largeimage .zoomer").remove();
+    $("#largeimage").append("<div class='zoomer'></div>");
+
+
+    $("#largeimage img").unbind("mouseenter,mouserleave");
+    $("#largeimage img").bind("mouserleave", function() {
+        //$("#largeimage .zoomer").hide()
+    });
+    $("#largeimage img").bind("mouseenter", function() {
+        //$("#largeimage .zoomer").show()
+        $("#largeimage .zoomer").css("background-image", "url('" + $("#largeimage img").attr("src") + "')");
+    });
+
+    $("#largeimage img").unbind("mousemove");
+    $("#largeimage img").bind("mousemove", function(e) {
+        var x = e.offsetX;
+        var y = e.offsetY;
+        var width = $(this).width();
+        var height = $(this).height();
+        var percentX = parseInt(100 * x / width);
+        var percentY = parseInt(100 * y / height);
+        console.log(x + ", " + y + " dimen: " + width + ", " + height + " percent: " + percentX + ", " + percentY);
+        $("#largeimage .zoomer").css("background-position", percentX + "% " + percentY + "%");
     });
 
 }
