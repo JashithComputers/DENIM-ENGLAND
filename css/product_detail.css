@@ -40,11 +40,29 @@
     min-width: 250px;
     float: left;
     text-align: center;
+    position: relative;
 }
 #largeimage img {
     max-width: 100%;
     max-height: 450px;
 }
+
+#largeimage .zoomer{
+    display:none;
+     position: absolute;
+    width: 50%;
+    height: 50%;
+    background: #F00;
+    right: -50%;
+    top: 0;
+    z-index: 100;
+
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(5,196,230,1);
+-moz-box-shadow: 0px 0px 10px 0px rgba(5,196,230,1);
+box-shadow: 0px 0px 10px 0px rgba(5,196,230,1);
+}
+#largeimage:hover .zoomer {display:block;}
+
 #productinfo {
     float: left;
     width: 48%;
@@ -150,3 +168,5 @@
     float: left;
     width: 69%;
 }
+
+
