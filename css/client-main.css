@@ -43,7 +43,6 @@ a,
 
 h1, h2, h3, h4, h5, h6 {
     font: 700 40px/1.2 Roboto, sans-serif;
-    text-transform: uppercase;
     margin: 5px 0 5px;
     color: #222;
 }
@@ -55,24 +54,20 @@ h2 {
 
 h3 {
     font-size: 13px;
-    letter-spacing: 1px;
     margin: 0 0 5px;
 }
 
 h4 {
     font-size: 12px;
-    letter-spacing: 1px;
 }
 
 h5 {
     font-size: 12px;
-    letter-spacing: 1px;
     font-weight: 400;
 }
 
 h6 {
     font-size: 11px;
-    letter-spacing: 1px;
     font-weight: 400;
 }
 
