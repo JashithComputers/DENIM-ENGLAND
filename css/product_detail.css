@@ -33,6 +33,7 @@
 #smallimages img {
     max-width: 60px;
     max-height: 60px;
+    cursor: pointer;
 }
 #largeimage {
     width: 40%;
