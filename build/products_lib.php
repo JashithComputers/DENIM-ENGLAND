@@ -20,7 +20,13 @@ function resizeImage($filename, $max_width, $max_height)
 
 	$image_p = imagecreatetruecolor($width, $height);
 
-	$image = imagecreatefromjpeg($filename);
+	$imageExt = substr($filename, -4);
+	$imageExt = strtolower($imageExt);
+
+	if($imageExt==".png")
+		$image = imagecreatefrompng($filename);
+	else
+		$image = imagecreatefromjpeg($filename);
 
 	imagecopyresampled($image_p, $image, 0, 0, 0, 0,
 	$width, $height, $orig_width, $orig_height);

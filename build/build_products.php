@@ -33,7 +33,8 @@ foreach ($products as $product)
 		{
 			if(substr($subItem, 0,1)=='.') continue;
 			
-			$curSubItemDir = $curProductDir . DS . $subItem;
+			echo "\n";
+			echo $curSubItemDir = $curProductDir . DS . $subItem;
 			
 			if(is_dir($curSubItemDir))
 			{
@@ -71,9 +72,16 @@ foreach ($products as $product)
 					{
 						$images[] = $parseFile;
 						
-						/**
-						imagejpeg(resizeImage($imagesDir . DS . $parseFile, 200, 200), $images_200 . DS . $parseFile, 100);
-						imagejpeg(resizeImage($imagesDir . DS . $parseFile, 400, 400), $images_400 . DS . $parseFile, 100);
+						/**/
+						$processProduct = array("D-E-M-W-022");
+						if(in_array($subItem,$processProduct)) 
+						{
+							echo "\nImage processing: $subItem";
+							$imgFn = $imageExt==".png" ? "imagepng" : "imagejpeg";
+							$imgQuality = $imageExt==".png" ? 9 : 100;
+							$imgFn(resizeImage($imagesDir . DS . $parseFile, 200, 200), $images_200 . DS . $parseFile, $imgQuality);
+							$imgFn(resizeImage($imagesDir . DS . $parseFile, 400, 400), $images_400 . DS . $parseFile, $imgQuality);
+						}
 						/**/
 					}
 				}
