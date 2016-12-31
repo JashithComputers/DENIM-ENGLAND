@@ -1,0 +1,12 @@
+{
+	"Price": "XX USD",
+	"title": "XX",
+	"meta": {
+		"Brand Name": "Curewe Kerien",
+		"": ""
+	},
+	"pricetable": [
+		["Quantity", "Price"],
+		["", "XX USD"]
+	]
+}
