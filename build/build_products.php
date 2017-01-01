@@ -49,9 +49,13 @@ foreach ($products as $product)
 				file_put_contents($curSubItemDir . DS . "meta.json", json_encode($itemMeta));
 				
 				$imagesDir = $curSubItemDir . DS . "images";
+				$needImageProcessing = false;
 				
 				if(!file_exists($curSubItemDir . DS . "build"))
+				{
 					mkdir($curSubItemDir . DS . "build");
+					$needImageProcessing = true;
+				}
 				
 				$images_200 = $curSubItemDir . DS . "build" . DS . "images_200";
 				if(!file_exists($images_200)) mkdir($images_200);
@@ -68,12 +72,12 @@ foreach ($products as $product)
 					
 					$imageExt = substr($parseFile, -4);
 					$imageExt = strtolower($imageExt);
-					if(in_array($imageExt, array('.jpg','jpe','.png','.gif')))
+					if(in_array($imageExt, array('.jpg','jpeg','.png')))
 					{
 						$images[] = $parseFile;
 						
 						/**/
-						if(!file_exists($images_200)) 
+						if($needImageProcessing) 
 						{
 							echo "\nImage processing: $subItem";
 							$imgFn = $imageExt==".png" ? "imagepng" : "imagejpeg";
