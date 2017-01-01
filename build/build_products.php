@@ -73,8 +73,7 @@ foreach ($products as $product)
 						$images[] = $parseFile;
 						
 						/**/
-						$processProduct = array("D-E-M-W-022");
-						if(in_array($subItem,$processProduct)) 
+						if(!file_exists($images_200)) 
 						{
 							echo "\nImage processing: $subItem";
 							$imgFn = $imageExt==".png" ? "imagepng" : "imagejpeg";
@@ -93,40 +92,71 @@ foreach ($products as $product)
 				
 				if(empty($productData))
 				{
-					$productTitle = ""; 
-					$handle = @fopen($curSubItemDir . DS . "desc.html", "r" );
-					if ($handle) {
-						while ( ($buffer = fgets ( $handle, 4096 )) !== false ) {
-							if(strlen(trim($buffer))>0)
-							{
-								if(stristr($buffer, 'Price') && (stristr($buffer, 'usd') || stristr($buffer, 'inr')))
+					$descFilePath = $curSubItemDir . DS . "desc.html";
+					$srcProductJsonPath = $curSubItemDir . DS . "source_product.json";
+					if(file_exists($descFilePath))
+					{
+						$productTitle = ""; 
+						$handle = @fopen($curSubItemDir . DS . "desc.html", "r" );
+						if ($handle) {
+							while ( ($buffer = fgets ( $handle, 4096 )) !== false ) {
+								if(strlen(trim($buffer))>0)
 								{
-									$productData['Price'] = trim(str_replace('PRICE', '', strtoupper($buffer)));
-								}
-								else if(strstr($buffer, ':'))
-								{
-									$parts = explode(':', trim($buffer));
-									$productData['meta'][array_shift($parts)] = trim(implode('', $parts));
-								}
-								else {
-									if(strlen(trim($buffer))>0)
+									if(stristr($buffer, 'Price') && (stristr($buffer, 'usd') || stristr($buffer, 'inr')))
 									{
-										$productTitle .= utf8_encode( trim($buffer) );
+										$productData['Price'] = trim(str_replace('PRICE', '', strtoupper($buffer)));
+									}
+									else if(strstr($buffer, ':'))
+									{
+										$parts = explode(':', trim($buffer));
+										$productData['meta'][array_shift($parts)] = trim(implode('', $parts));
+									}
+									else {
+										if(strlen(trim($buffer))>0)
+										{
+											$productTitle .= utf8_encode( trim($buffer) );
+										}
 									}
 								}
 							}
+							if (! feof ( $handle )) {
+								echo "Error: unexpected fgets() fail\n";
+							}
+							fclose ( $handle );
 						}
-						if (! feof ( $handle )) {
-							echo "Error: unexpected fgets() fail\n";
-						}
-						fclose ( $handle );
+					
+					
+						$productData['title'] = $productTitle;
 					}
 					
-					$productData['title'] = $productTitle;
-					
+					else if(file_exists($srcProductJsonPath))
+					{
+						$cleanProductJsonStr = "";
+						$handle = @fopen($srcProductJsonPath, "r" );
+                                                if ($handle) {
+							while ( ($buffer = fgets ( $handle, 4096 )) !== false ) {
+								if(strlen(trim($buffer))>0)
+								{
+									 $cleanProductJsonStr .= utf8_encode( trim($buffer) );
+								}
+							}
+							if (! feof ( $handle )) {
+                                                                echo "Error: unexpected fgets() fail\n";
+                                                        }
+                                                        fclose ( $handle );
+						}
+						echo "\n\n";
+						echo $cleanProductJsonStr;
+						echo "\n\n";
+						file_put_contents($srcProductJsonPath, $cleanProductJsonStr);
+						
+					}
+
+										
 					print_r($productData);
 					
-					file_put_contents($curSubItemDir . DS . "product.json", json_encode($productData));
+					if(!empty($productData))
+						file_put_contents($curSubItemDir . DS . "product.json", json_encode($productData));
 					
 					echo file_get_contents($curSubItemDir . DS . "product.json");
 					echo "\n\n";
