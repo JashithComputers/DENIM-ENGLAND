@@ -1,12 +1,1 @@
-{
-	"Price": "XX USD",
-	"title": "XX",
-	"meta": {
-		"Brand Name": "Curewe Kerien",
-		"": ""
-	},
-	"pricetable": [
-		["Quantity", "Price"],
-		["", "XX USD"]
-	]
-}
+{"Price": "3.1 USD - 3.5 USD","title": "Curewe Kerien Heren Cowhide Belt Famosa Geometric Ceinture Leather Designer Belts Men High Quality Luxury Automatic Belt Homme","meta": {"Brand Name": "Curewe Kerien","Item Type": "Belts","Belt Width": "3.5 cm","Pattern Type": "Geometric","Department Name": "Adult","Style": "Fashion","Buckle Length": "8 cm","Belts Material": "Metal, Cowskin","Buckle Width": "4 cm","Model Number": "ZDK0014","Color": "Black","Gender": "Men, Male, Boys","Model": "Geometric Design","Buckle": "Automatic Belt"},"pricetable": [["Quantity", "Price"],["10-49", "3.5 USD"],["50-299", "3.2 USD"],[">=300", "3.1 USD"]]}
