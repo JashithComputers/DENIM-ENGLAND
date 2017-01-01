@@ -185,7 +185,8 @@ foreach ($products as $product)
 				
 				file_put_contents($productBuildDir . DS . "pid_{$pid}.json", json_encode($itemMeta));
 				
-				$productItems[] = $itemMeta;
+				if(!file_exists($curSubItemDir . DS . "is_demo.data"))
+					$productItems[] = $itemMeta;
 			}
 		}
 		
