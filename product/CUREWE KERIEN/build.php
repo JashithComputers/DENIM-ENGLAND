@@ -19,7 +19,7 @@ foreach($ckfiles as $item)
 		//exec($cmd);
 		//echo "mkdir \"$itemPath\"/backup";
 		//echo "mv \"$itemPath/\"*.doc* \"$itemPath/backup\"";
-		echo "mv \"$itemPath/source.json.txt\" \"$itemPath/product.json\"";
+		echo "cp \"$itemPath/product.json\" \"$itemPath/source_product.json\"";
 	}
 		
 }

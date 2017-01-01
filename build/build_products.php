@@ -149,6 +149,14 @@ foreach ($products as $product)
 						echo $cleanProductJsonStr;
 						echo "\n\n";
 						file_put_contents($srcProductJsonPath, $cleanProductJsonStr);
+						echo $cleanedProductJson = file_get_contents($srcProductJsonPath);
+						$cleanedProductAr = json_decode($cleanedProductJson);
+						print_r($cleanedProductAr);
+						echo "\n\n";
+	                                        var_dump(json_last_error());
+        	                                echo "\n\n";
+						echo "\n{$srcProductJsonPath}\n";
+						if(!empty($cleanedProductAr)) $productData = $cleanedProductAr;
 						
 					}
 
