@@ -20,6 +20,8 @@ $.ajax({
 
 function buildProductDetailPage(data) {
     console.log(data);
+        
+    $(document).ready(function(){if(window.jcinlinefn_renderproduct) window.jcinlinefn_renderproduct(data);});
 
     var productObj = $('#productdetail');
 
