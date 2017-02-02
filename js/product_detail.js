@@ -44,9 +44,13 @@ function buildProductDetailPage(data) {
     setActiveMenu(parentPpid);
 
     var imgURL = "http://static.denimengland.com/product/" + parentTitle + "/" + code + "/images/" + img;
+        
+        var siteName = $('#productbreadcrumb').attr("data-title");
+	if(!siteName) siteName = "Denim England";
 
+        
     var breadcrumb = "";
-    breadcrumb += "<a href='/'>Denim England</a>";
+    breadcrumb += "<a href='/'>"+siteName+"</a>";
     breadcrumb += " / "
     breadcrumb += "<a href='/p/product-page.html?pid=" + parentPpid + "&ts'>" + parentTitle + "</a>";
     breadcrumb += " / "
