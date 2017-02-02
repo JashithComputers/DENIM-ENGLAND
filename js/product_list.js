@@ -57,7 +57,7 @@ function buildProductListPage(data)
 		newProduct.find('img').attr('src',imgURL);
 		newProduct.find('span').html(title).attr('title',title);
 		
-		var detailPageURL = "http://www.denimengland.com/p/product-item.html?pid="+pid+"&";
+		var detailPageURL = "/p/product-item.html?pid="+pid+"&";
 		newProduct.find('a').attr('href',detailPageURL);
 		
 		$("#productlistpage").append(newProduct);	
