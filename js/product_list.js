@@ -25,8 +25,11 @@ function buildProductListPage(data)
 	
 	var productName = data.title;
 	
+	var siteName = $('#productbreadcrumb').attr("data-title");
+	if(!siteName) siteName = ">Denim England";
+	
 	var breadcrumb = "";
-	breadcrumb += "<a href='/'>Denim England</a>";
+	breadcrumb += "<a href='/'>"+siteName+"</a>";
 	breadcrumb += " / "
 	breadcrumb += "<a class='active' href='#'>"+productName+"</a>";
 	
