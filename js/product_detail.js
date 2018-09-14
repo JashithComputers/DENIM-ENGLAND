@@ -3,7 +3,7 @@ var pid = __GET['pid'] || 'dewp019';
 
 console.log(pid);
 
-var productURL = "http://static.denimengland.com/product/build/pid_" + pid + ".json";
+var productURL = "https://static.denimengland.com/product/build/pid_" + pid + ".json";
 
 console.log(productURL);
 
@@ -43,7 +43,7 @@ function buildProductDetailPage(data) {
 
     setActiveMenu(parentPpid);
 
-    var imgURL = "http://static.denimengland.com/product/" + parentTitle + "/" + code + "/images/" + img;
+    var imgURL = "https://static.denimengland.com/product/" + parentTitle + "/" + code + "/images/" + img;
         
         var siteName = $('#productbreadcrumb').attr("data-title");
 	if(!siteName) siteName = "Denim England";
@@ -62,7 +62,7 @@ function buildProductDetailPage(data) {
 
     productObj.find('#smallimages').html('');
     for (x in images) {
-        var smallImgURL = "http://static.denimengland.com/product/" + parentTitle + "/" + code + "/build/images_200/" + images[x];
+        var smallImgURL = "https://static.denimengland.com/product/" + parentTitle + "/" + code + "/build/images_200/" + images[x];
 
         var smallImgHTML = "<img src='" + smallImgURL + "' data-imgname='" + images[x] + "' />";
         productObj.find('#smallimages').append(smallImgHTML);
@@ -86,8 +86,8 @@ function buildProductDetailPage(data) {
         var imgname = $(this).attr("data-imgname");
         console.log(imgname);
 
-        productObj.find('#largeimage img').attr("src", "http://static.denimengland.com/images/loading.gif");
-        var imgURL = "http://static.denimengland.com/product/" + parentTitle + "/" + code + "/images/" + imgname;
+        productObj.find('#largeimage img').attr("src", "https://static.denimengland.com/images/loading.gif");
+        var imgURL = "https://static.denimengland.com/product/" + parentTitle + "/" + code + "/images/" + imgname;
         productObj.find('#largeimage img').attr("src", imgURL);
     });
 
