@@ -4,7 +4,7 @@ setActiveMenu(pid);
 
 console.log(pid);
 
-var productURL = "http://static.denimengland.com/product/build/ppid_"+pid+".json";
+var productURL = "https://static.denimengland.com/product/build/ppid_"+pid+".json";
 
 console.log(productURL);
 
@@ -55,7 +55,7 @@ function buildProductListPage(data)
 		
 		var newProduct = newProductObj.clone();
 		
-		var imgURL = "http://static.denimengland.com/product/"+productName+"/"+code+"/build/images_200/"+img;
+		var imgURL = "https://static.denimengland.com/product/"+productName+"/"+code+"/build/images_200/"+img;
 		
 		newProduct.find('img').attr('src',imgURL);
 		newProduct.find('span').html(title).attr('title',title);
